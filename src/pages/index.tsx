@@ -26,7 +26,7 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ trees }) => {
-  const treesChartData = useGetChartData(trees);
+  const treesChartData = useGetChartData(trees || []);
 
   return (
     <>
