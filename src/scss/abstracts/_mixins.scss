@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin pageLayout() {
+  @include flexCenter(column);
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+@mixin sectionLayout($background-url) {
+  @include flexCenter(row);
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-top: 5rem;
+  padding-bottom: 20rem;
+  padding-right: 5rem;
+  padding-left: 5rem;
+  background-image: url($background-url);
+  background-position: cover;
+  background-attachment: fixed;
+
+  @media screen and (max-width: mediaScreenSize("laptop")) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media screen and (max-width: mediaScreenSize("mobileL")) {
+    padding: 1rem 1.5rem;
+    padding-bottom: 10rem;
+  }
+}

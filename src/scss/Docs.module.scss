@@ -1,0 +1,106 @@
+@use "./abstracts" as *;
+
+.docsContainer {
+  @include pageLayout();
+  flex-direction: column;
+  align-items: flex-start;
+
+  #{&}__firstSection {
+    @include sectionLayout(
+      "https://res.cloudinary.com/birthdayreminder/image/upload/v1674570972/Trees%20Analysis%20NEXT%20Project/trees_11_ow8tnx.jpg"
+    );
+    min-height: $sectionMinHeight - 15rem;
+  }
+
+  #{&}__secondSection {
+    @include sectionLayout(
+      "https://res.cloudinary.com/birthdayreminder/image/upload/v1674564882/Trees%20Analysis%20NEXT%20Project/trees_6_mptkbl.jpg"
+    );
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 5rem;
+
+    li {
+      @include flexCenter(row);
+      justify-content: space-between;
+      width: 80%;
+      min-height: 8rem;
+      gap: 1rem;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      background-color: rgba($color: color(normal-green), $alpha: 0.7);
+
+      @media screen and (max-width: mediaScreenSize("laptop")) {
+        width: 100%;
+      }
+
+      @media screen and (max-width: mediaScreenSize("mobileL")) {
+        flex-direction: column;
+      }
+
+      @media screen and (max-width: mediaScreenSize("mobileM")) {
+        padding: 0.5rem 1rem;
+      }
+
+      h3 {
+        font-size: 2rem;
+        color: black;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 0.5rem;
+
+        @media screen and (max-width: mediaScreenSize("laptop")) {
+          font-size: 1.5rem;
+        }
+      }
+
+      div {
+        @include flexCenter(row);
+        width: 70%;
+        background-color: white;
+        justify-content: space-between;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+
+        @media screen and (max-width: mediaScreenSize("mobileL")) {
+          width: 100%;
+          padding: 0.5rem;
+        }
+
+        p {
+          font-size: 1.5rem;
+          color: black;
+
+          @media screen and (max-width: mediaScreenSize("laptop")) {
+            font-size: 1rem;
+          }
+
+          @media screen and (max-width: mediaScreenSize("tablet")) {
+            font-size: 0.75rem;
+          }
+
+          @media screen and (max-width: mediaScreenSize("mobileM")) {
+            font-size: 0.6rem;
+          }
+        }
+
+        svg {
+          font-size: 2rem;
+          color: red;
+          transition: transform 0.2s;
+
+          @media screen and (max-width: mediaScreenSize("mobileL")) {
+            font-size: 1.5rem;
+          }
+
+          &:hover {
+            transform: scale(1.4);
+          }
+        }
+      }
+    }
+  }
+}

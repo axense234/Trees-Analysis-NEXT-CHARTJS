@@ -1,0 +1,63 @@
+@use "./abstracts" as *;
+
+.sectionIntro {
+  @include flexCenter(column);
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: rgba($color: color(normal-green), $alpha: 0.7);
+  border-radius: 2rem;
+  min-height: 20rem;
+
+  @media screen and (max-width: mediaScreenSize("mobileL")) {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+
+    @media screen and (max-width: mediaScreenSize("laptopL")) {
+      font-size: 3rem;
+    }
+
+    @media screen and (max-width: mediaScreenSize("mobileS")) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 2rem;
+    max-width: 70%;
+
+    @media screen and (max-width: mediaScreenSize("laptopL")) {
+      font-size: 1.25rem;
+    }
+
+    @media screen and (max-width: mediaScreenSize("laptopL")) {
+      max-width: none;
+    }
+
+    @media screen and (max-width: mediaScreenSize("mobileS")) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.top {
+  width: 80%;
+
+  @media screen and (max-width: mediaScreenSize("mobileL")) {
+    width: 100%;
+  }
+}
+
+.side {
+  width: 30%;
+
+  @media screen and (max-width: mediaScreenSize("laptop")) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: mediaScreenSize("mobileL")) {
+    width: 100%;
+  }
+}

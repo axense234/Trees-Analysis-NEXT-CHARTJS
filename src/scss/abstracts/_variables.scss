@@ -1,0 +1,29 @@
+$colors: (
+  "darker-green": #1a2902,
+  "dark-green": #344c11ff,
+  "normal-green": #778d45,
+  "white-green": #aec09a,
+  "light-green": #aec670,
+);
+
+$templatePadding: 0 3rem;
+$templateHeight: 6rem;
+$testingBorder: 1px solid white;
+$sectionMinHeight: 50rem;
+
+@media screen and (max-width: mediaScreenSize("mobileL")) {
+  $sectionMinHeight: 25rem;
+}
+
+@media screen and (max-width: mediaScreenSize("mobileS")) {
+  $sectionMinHeight: 15rem;
+}
+
+$mediaSizes: (
+  "laptopL": "1440px",
+  "laptop": "1024px",
+  "tablet": "768px",
+  "mobileL": "425px",
+  "mobileM": "375px",
+  "mobileS": "320px",
+);

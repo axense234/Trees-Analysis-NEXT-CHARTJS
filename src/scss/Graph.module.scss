@@ -1,0 +1,23 @@
+@use "./abstracts" as *;
+
+.graph {
+  padding: 3rem;
+  background-color: white;
+  border-radius: 2rem;
+  font-size: 3rem;
+  width: 60%;
+
+  @media screen and (max-width: mediaScreenSize("laptop")) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: mediaScreenSize("tablet")) {
+    font-size: 1rem;
+    padding: 1rem;
+    @include flexCenter(column);
+  }
+
+  @media screen and (max-width: 668px) {
+    display: none;
+  }
+}

@@ -1,0 +1,8 @@
+@use "./abstracts" as *;
+
+.logo {
+  @media screen and (max-width: mediaScreenSize("mobileL")) {
+    height: auto;
+    width: 120px;
+  }
+}

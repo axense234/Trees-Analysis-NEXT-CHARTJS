@@ -1,0 +1,60 @@
+@use "./abstracts" as *;
+
+.graphsContainer {
+  @include pageLayout();
+  flex-direction: column;
+  background-color: color(normal-green);
+  align-items: flex-start;
+  justify-content: space-between;
+
+  #{&}__firstSection {
+    @include sectionLayout(
+      "https://res.cloudinary.com/birthdayreminder/image/upload/v1674564864/Trees%20Analysis%20NEXT%20Project/trees_3_mhqc3c.jpg"
+    );
+    justify-content: space-between;
+  }
+
+  #{&}__graphsNav {
+    @include flexCenter(row);
+    list-style: none;
+    flex-wrap: wrap;
+    width: 30%;
+    padding: 2rem;
+    background-color: rgba($color: color(normal-green), $alpha: 0.7);
+    border-radius: 2rem;
+    min-height: 20rem;
+    gap: 1rem;
+
+    @media screen and (max-width: mediaScreenSize("laptop")) {
+      width: 80%;
+    }
+
+    @media screen and (max-width: mediaScreenSize("mobileL")) {
+      width: 100%;
+    }
+
+    li {
+      @include flexCenter(row);
+      width: 30%;
+      background-color: color(dark-green);
+      border-radius: 2rem;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      @media screen and (max-width: mediaScreenSize("mobileL")) {
+        width: 100%;
+      }
+
+      a {
+        @include flexCenter(row);
+        padding: 1rem 0;
+        width: 100%;
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}

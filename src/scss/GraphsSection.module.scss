@@ -1,0 +1,46 @@
+@use "./abstracts" as *;
+
+.graphsSection {
+  @include sectionLayout(
+    "https://res.cloudinary.com/birthdayreminder/image/upload/v1674570379/Trees%20Analysis%20NEXT%20Project/trees_8_jjelgi.jpg"
+  );
+  justify-content: space-between;
+
+  header {
+    @include flexCenter(column);
+    border-radius: 2rem;
+    width: 30%;
+    padding: 1rem;
+    background-color: rgba($color: color(normal-green), $alpha: 0.7);
+
+    @media screen and (max-width: mediaScreenSize("laptop")) {
+      width: 80%;
+    }
+
+    @media screen and (max-width: mediaScreenSize("mobileL")) {
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 4rem;
+
+      @media screen and (max-width: mediaScreenSize("mobileL")) {
+        font-size: 3rem;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      background-color: black;
+      transition: transform 0.15s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@use "./abstracts" as *;
+
+.homeContainer {
+  @include pageLayout();
+  background-color: color(normal-green);
+  justify-content: space-between;
+  align-items: flex-start;
+
+  #{&}__firstSection {
+    @include sectionLayout(
+      "https://res.cloudinary.com/birthdayreminder/image/upload/v1674232883/Trees%20Analysis%20NEXT%20Project/trees_qpu18x.jpg"
+    );
+    justify-content: space-between;
+    min-height: $sectionMinHeight - 15rem;
+  }
+
+  #{&}__secondSection {
+    @include sectionLayout(
+      "https://res.cloudinary.com/birthdayreminder/image/upload/v1674559863/Trees%20Analysis%20NEXT%20Project/trees_2_wigwjc.jpg"
+    );
+    justify-content: space-between;
+    min-height: $sectionMinHeight - 15rem;
+  }
+}
