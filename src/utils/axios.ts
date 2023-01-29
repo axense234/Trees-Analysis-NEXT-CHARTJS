@@ -1,8 +1,10 @@
+// Axios
 import axios from "axios";
+// Config
+import { server } from "../config";
 
 const axiosInstance = axios.create({
-  baseURL:
-    process.env.NODE_ENV === "production" ? "" : "http://localhost:3000/api",
+  baseURL: `${server}/api`,
 });
 
 export default axiosInstance;
