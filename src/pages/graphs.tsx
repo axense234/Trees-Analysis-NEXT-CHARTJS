@@ -66,7 +66,7 @@ const Graphs: React.FC<GraphsProps> = ({ trees }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await axiosInstance.get("/trees");
-  const { trees } = data as ResData;
+  const { trees } = (await data) as ResData;
 
   return {
     props: {
