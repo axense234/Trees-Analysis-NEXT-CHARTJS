@@ -75,4 +75,8 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+Graphs.defaultProps = {
+  trees: templateTrees,
+};
+
 export default Graphs;

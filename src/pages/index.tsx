@@ -64,4 +64,8 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+Home.defaultProps = {
+  trees: templateTrees,
+};
+
 export default Home;
