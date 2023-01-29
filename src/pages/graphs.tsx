@@ -5,7 +5,7 @@ import Meta from "@/components/common/Meta";
 import SectionIntro from "@/components/common/SectionIntro";
 import GraphsSection from "@/components/graphs/GraphsSection";
 // Data
-import { graphNavLinks, graphsPageImageUrls } from "@/data";
+import { graphNavLinks, graphsPageImageUrls, templateTrees } from "@/data";
 // Other
 import axiosInstance from "@/utils/axios";
 // TS
@@ -25,7 +25,7 @@ interface GraphsProps {
 Chart.register([LineElement, PointElement, BarElement]);
 
 const Graphs: React.FC<GraphsProps> = ({ trees }) => {
-  const treesChartData = useGetChartData(trees);
+  const treesChartData = useGetChartData(trees || templateTrees);
 
   return (
     <>

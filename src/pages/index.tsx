@@ -17,7 +17,7 @@ import { ResData, Tree } from "..";
 // Hooks
 import useGetChartData from "@/hooks/useGetChartData";
 // Data
-import { homePageImageUrls } from "@/data";
+import { homePageImageUrls, templateTrees } from "@/data";
 
 Chart.register([LineElement, PointElement, BarElement]);
 
@@ -26,7 +26,7 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ trees }) => {
-  const treesChartData = useGetChartData(trees);
+  const treesChartData = useGetChartData(trees || templateTrees);
 
   return (
     <>
