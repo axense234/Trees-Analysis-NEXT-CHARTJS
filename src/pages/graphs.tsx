@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const { data } = await axiosInstance.get(
       "https://trees-analysis-nextjs-chartjs-ca.netlify.app/api/trees"
     );
-    const { trees } = (await data) as ResData;
+    const { trees } = ((await data) as ResData) || null;
     return {
       props: {
         trees,
