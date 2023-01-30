@@ -5,7 +5,12 @@ import Meta from "@/components/common/Meta";
 import SectionIntro from "@/components/common/SectionIntro";
 import GraphsSection from "@/components/graphs/GraphsSection";
 // Data
-import { graphNavLinks, graphsPageImageUrls, templateTrees } from "@/data";
+import {
+  graphNavLinks,
+  graphsPageImageUrls,
+  shortTemplateTrees,
+  templateTrees,
+} from "@/data";
 // Other
 import axiosInstance from "@/utils/axios";
 // TS
@@ -65,14 +70,23 @@ const Graphs: React.FC<GraphsProps> = ({ trees }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await axiosInstance.get("/trees");
-  const trees = await data.trees;
+  try {
+    const { data } = await axiosInstance.get("/trees");
+    const trees = await data.trees;
 
-  return {
-    props: {
-      trees: trees || null,
-    },
-  };
+    return {
+      props: {
+        trees: trees || null,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        trees: shortTemplateTrees,
+      },
+    };
+  }
 };
 
 Graphs.defaultProps = {

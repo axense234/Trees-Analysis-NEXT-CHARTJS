@@ -208,6 +208,54 @@ export const graphNavLinks: GraphNavLink[] = [
   },
 ];
 
+export const shortTemplateTrees: Tree[] = [
+  {
+    tree_uid: "bb93302c-67fd-42f8-9225-0b7ae0549fe8",
+    treeName: "Cup Lichen",
+    treeScientificName: "Cladonia pleurota (Flörke) Schaerer",
+    treeFamily: "Cladoniaceae",
+    amountOfTrees: 95065,
+    pricePerTreeString: "$5167.49",
+    plantedTrees: 82283,
+  },
+  {
+    tree_uid: "6e26a12c-c95a-4ea9-bc1c-e8088a9e368d",
+    treeName: "Mountain Holly",
+    treeScientificName: "Ilex montana Torr. & A. Gray ex A. Gray",
+    treeFamily: "Aquifoliaceae",
+    amountOfTrees: 19812,
+    pricePerTreeString: "$1976.39",
+    plantedTrees: 35714,
+  },
+  {
+    tree_uid: "cb7bf563-a2ae-4d2b-b19a-48b849b7cbec",
+    treeName: "Desert Monardella",
+    treeScientificName: "Monardella exilis (A. Gray) Greene",
+    treeFamily: "Lamiaceae",
+    amountOfTrees: 95075,
+    pricePerTreeString: "$7505.17",
+    plantedTrees: 98412,
+  },
+  {
+    tree_uid: "7713a85c-5ea7-4dab-a777-c35262f6575c",
+    treeName: "Annual Honesty",
+    treeScientificName: "Lunaria annua L.",
+    treeFamily: "Brassicaceae",
+    amountOfTrees: 96209,
+    pricePerTreeString: "$6107.52",
+    plantedTrees: 71796,
+  },
+  {
+    tree_uid: "407fb186-1fae-4f47-b27a-0e6331eac67a",
+    treeName: "Rough Flatsedge",
+    treeScientificName: "Cyperus retrofractus (L.) Torr.",
+    treeFamily: "Cyperaceae",
+    amountOfTrees: 14933,
+    pricePerTreeString: "$3681.92",
+    plantedTrees: 19435,
+  },
+];
+
 export const templateTrees: Tree[] = [
   {
     tree_uid: "bb93302c-67fd-42f8-9225-0b7ae0549fe8",

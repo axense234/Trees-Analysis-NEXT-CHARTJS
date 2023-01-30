@@ -13,11 +13,12 @@ const getAllTrees = async (
   req: NextApiRequest,
   res: NextApiResponse<ResData>
 ) => {
-  const foundTrees = await TreeClient.findMany({
-    orderBy: { treeName: "asc" },
+  const foundTrees = await getOrSetCache("trees", async () => {
+    const trees = await TreeClient.findMany({
+      orderBy: { treeName: "asc" },
+    });
+    return trees;
   });
-
-  await deleteCache("trees");
 
   if (foundTrees.length < 1) {
     return res

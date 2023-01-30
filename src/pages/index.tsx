@@ -17,7 +17,7 @@ import { ResData, Tree } from "..";
 // Hooks
 import useGetChartData from "@/hooks/useGetChartData";
 // Data
-import { homePageImageUrls, templateTrees } from "@/data";
+import { homePageImageUrls, shortTemplateTrees, templateTrees } from "@/data";
 
 Chart.register([LineElement, PointElement, BarElement]);
 
@@ -54,18 +54,22 @@ const Home: React.FC<HomeProps> = ({ trees }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await axiosInstance.get("/trees");
-  const trees = await data.trees;
+  try {
+    const { data } = await axiosInstance.get("/trees");
+    const trees = await data.trees;
 
-  return {
-    props: {
-      trees: trees || null,
-    },
-  };
-};
-
-Home.defaultProps = {
-  trees: templateTrees,
+    return {
+      props: {
+        trees: trees || null,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        trees: shortTemplateTrees,
+      },
+    };
+  }
 };
 
 export default Home;
