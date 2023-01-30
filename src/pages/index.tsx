@@ -64,7 +64,6 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     };
   } catch (error) {
-    console.log(error);
     return {
       props: {
         trees: templateTrees,
