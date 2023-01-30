@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+I will create a proper README.md later,i just wanted to use the create-next-app one and put the link to the actual site here:
+[Netlify]("https://trees-analysis-nextjs-chartjs-ca.netlify.app/")
+
 First, run the development server:
 
 ```bash
