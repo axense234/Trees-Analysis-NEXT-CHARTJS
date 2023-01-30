@@ -53,11 +53,12 @@ const Home: React.FC<HomeProps> = ({ trees }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async (context: any) => {
   try {
-    const { data } = await axiosInstance.get("/trees");
+    const { data } = await axiosInstance.get(
+      "https://trees-analysis-nextjs-chartjs-ca.netlify.app/api/trees"
+    );
     const trees = await data.trees;
-
     return {
       props: {
         trees: trees || null,
@@ -71,6 +72,19 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     };
   }
+};
+
+export const getStaticPaths = async () => {
+  const { data } = await axiosInstance("/trees");
+  const trees = await data.trees;
+
+  const ids = trees.map((art: Tree) => art.tree_uid);
+  const paths = ids.map((id: string) => ({ params: { id } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
 };
 
 export default Home;
