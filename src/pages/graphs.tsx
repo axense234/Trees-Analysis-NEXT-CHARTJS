@@ -66,7 +66,9 @@ const Graphs: React.FC<GraphsProps> = ({ trees }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const { data } = await axiosInstance.get("/trees");
+    const { data } = await axiosInstance.get(
+      "https://trees-analysis-nextjs-chartjs-ca.netlify.app/api/trees"
+    );
     const { trees } = (await data) as ResData;
     return {
       props: {
