@@ -4,7 +4,7 @@ import axios from "axios";
 import { server } from "../config";
 
 const axiosInstance = axios.create({
-  baseURL: `${server}/api`,
+  baseURL: `https://trees-analysis-nextjs-chartjs-ca.netlify.app/api`,
 });
 
 export default axiosInstance;
