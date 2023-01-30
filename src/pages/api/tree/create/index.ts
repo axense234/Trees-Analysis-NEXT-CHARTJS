@@ -1,4 +1,5 @@
 // Prisma
+import { templateTrees } from "@/data";
 import TreeClient from "@/db/postgres";
 // TS
 import { ResData } from "@/index";
@@ -17,13 +18,13 @@ const createTree = async (
 
   console.log(treeBody);
 
-  const createdTree = await TreeClient.create({ data: { ...treeBody } });
+  const createdTree = await TreeClient.createMany({ data: templateTrees });
 
   await deleteCache("trees");
-  await setCache(`trees:${createdTree.tree_uid}`, createdTree);
+  // await setCache(`trees:${createdTree.tree_uid}`, createdTree);
 
   return res.status(StatusCodes.CREATED).json({
-    msg: `Successfully created tree with uid:${createdTree.tree_uid}!`,
+    msg: `Successfully created tree with uid:$test!`,
     tree: createdTree,
   });
 };
