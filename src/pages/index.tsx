@@ -56,11 +56,11 @@ const Home: React.FC<HomeProps> = ({ trees }) => {
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const { data } = await axiosInstance.get("/trees");
-    const { trees } = (await data) as ResData;
+    const trees = await data.trees;
 
     return {
       props: {
-        trees,
+        trees: trees || null,
       },
     };
   } catch (error: any) {
