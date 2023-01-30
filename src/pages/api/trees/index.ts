@@ -4,12 +4,17 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { StatusCodes } from "http-status-codes";
 // Prisma
 import TreeClient from "@/db/postgres";
-// Reids
+// Redis
 import { getOrSetCache } from "@/utils/redis";
+// TS
+import { ResData } from "@/index";
 
-const getAllTrees = async (req: NextApiRequest, res: NextApiResponse) => {
+const getAllTrees = async (
+  req: NextApiRequest,
+  res: NextApiResponse<ResData>
+) => {
   const foundTrees = await getOrSetCache("trees", async () => {
-    const trees = await TreeClient.findMany();
+    const trees = await TreeClient.findMany({ orderBy: { treeName: "asc" } });
     return trees;
   });
 
