@@ -63,17 +63,14 @@ export const getStaticProps: GetStaticProps = async () => {
         trees,
       },
     };
-  } catch (error) {
+  } catch (error: any) {
+    console.log(error.code, error.msg);
     return {
       props: {
         trees: templateTrees,
       },
     };
   }
-};
-
-Home.defaultProps = {
-  trees: templateTrees,
 };
 
 export default Home;
