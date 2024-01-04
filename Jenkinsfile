@@ -28,7 +28,7 @@ pipeline {
     stage('AWS ECR Push') {
       steps {
         sh 'docker tag trees-analysis-next:latest public.ecr.aws/g6t2k7y6/trees-analysis-next:latest'
-        sh 'docker push public.ecr.aws/g6t2k7y6/trees-analysis-next:latestt'
+        sh 'docker push public.ecr.aws/g6t2k7y6/trees-analysis-next:latest'
       }
     }
 
