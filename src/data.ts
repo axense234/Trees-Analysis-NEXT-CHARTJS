@@ -2,30 +2,30 @@ import { AboutTechnology, APIRoute, GraphNavLink, NavLink, Tree } from ".";
 import { server } from "./config";
 
 export const docsApiRoutes: APIRoute[] = [
-  { id: 1, method: "GET", bgColor: "green", routeUrl: `${server}/trees` },
+  { id: 1, method: "GET", bgColor: "green", routeUrl: `${server}/api/trees` },
   {
     id: 2,
     method: "GET",
     bgColor: "green",
-    routeUrl: `${server}/tree/:treeUID`,
+    routeUrl: `${server}/api/tree/:treeUID`,
   },
   {
     id: 3,
     method: "POST",
     bgColor: "orange",
-    routeUrl: `${server}/tree/create`,
+    routeUrl: `${server}/api/tree/create`,
   },
   {
     id: 4,
     method: "PATCH",
     bgColor: "white",
-    routeUrl: `${server}/tree/update/:treeUID`,
+    routeUrl: `${server}/api/tree/update/:treeUID`,
   },
   {
     id: 5,
     method: "DELETE",
     bgColor: "red",
-    routeUrl: `${server}/tree/delete/:treeUID`,
+    routeUrl: `${server}/api/tree/delete/:treeUID`,
   },
 ];
 

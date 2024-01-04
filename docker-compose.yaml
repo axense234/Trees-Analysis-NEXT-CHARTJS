@@ -1,0 +1,47 @@
+version: "3.8"
+services:
+  trees_analysis:
+    image: trees-analysis:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+      redis_db:
+        condition: service_healthy
+    command: sh -c 'npx prisma migrate dev && npx prisma generate && npm run dev'
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - REDIS_INSTANCE_URL=${REDIS_INSTANCE_URL}
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
+
+  postgres_db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 50s
+      retries: 3
+
+  redis_db:
+    image: redis:latest
+    environment:
+      - REDIS_BIND=0.0.0.0
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      retries: 5
+volumes:
+  postgres_data:
