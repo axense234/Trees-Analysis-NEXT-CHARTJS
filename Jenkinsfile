@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Setup'){
             steps {
-                git(url: "https://github.com/axense234/Trees-Analysis-NEXT-CHARTJS.git", branch:"master")
+                git(url: "https://github.com/axense234/Trees-Analysis-NEXT-CHARTJS", branch:"master")
             }
         }
 
